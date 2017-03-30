@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
+import {PickOptionContainer} from './containers';
 
 const app = () => (
-  <View>
-    <Text>
-      Hello world
-    </Text>
+  <View style={{flex: 1}}>
+    <PickOptionContainer/>
   </View>
 )
 
