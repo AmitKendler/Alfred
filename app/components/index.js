@@ -1,4 +1,5 @@
 import SubscribeFlight from './SubscribeFlight/SubscribeFlight';
-export { SubscribeFlight };
+import ArrangeFlightButton from './ArrangeFlightButton/ArrangeFlightButton';
 import SelectTrip from './SelectTrip/SelectTrip';
-export { SelectTrip };
+
+export {SubscribeFlight, ArrangeFlightButton, SelectTrip};
