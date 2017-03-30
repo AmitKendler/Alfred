@@ -11,7 +11,6 @@ class SelectTrip extends Component {
         this.state = {
             date: new Date(),
             starCount: 4,
-            flightsCheck: true,
             hotelCheck: true,
             transportationCheck: true,
             destinationAddress: "",
@@ -39,7 +38,7 @@ class SelectTrip extends Component {
 
     render() {
         return (
-        <View>
+            <View>
           <List >
             <ListItem>
               <Input
@@ -48,11 +47,12 @@ class SelectTrip extends Component {
                 multiline={false}
                 placeholder="Meeting description"/>
             </ListItem>
-
             <ListItem>
-              <AddressPicker onAddressChange={this.changeAddress.bind(this)}/>
+              <AddressPicker placeholder="choose origin address" onAddressChange={this.changeOriginAddress.bind(this)}/>
             </ListItem>
-
+               <ListItem>
+              <AddressPicker  placeholder="choose destination address" onAddressChange={this.changeDestinationAddress.bind(this)}/>
+            </ListItem>
             <ListItem style={{ justifyContent:'center'}}>
             <Text>meeting date</Text>
             <DatePicker
@@ -84,10 +84,8 @@ class SelectTrip extends Component {
             </ListItem>
 
              <ListItem style={{justifyContent:"center"}}>
-              <CheckBox checked={this.state.flightsCheck} onPress={()=>this.setState({flightsCheck:!this.state.flightsCheck})}  />
-              <Text style={{marginRight:20}}>Flight</Text>
               <CheckBox checked={this.state.hotelCheck} onPress={()=>this.setState({hotelCheck:!this.state.hotelCheck})}/>
-              <Text style={{marginRight:20}}>Hotel</Text>
+              <Text style={{marginRight:70}}>Hotel</Text>
               <CheckBox checked={this.state.transportationCheck} onPress={()=>this.setState({transportationCheck:!this.state.transportationCheck})}/>
               <Text style={{marginRight:20}}>Transportation</Text>
             </ListItem>
@@ -95,13 +93,7 @@ class SelectTrip extends Component {
             <Text>rating of service</Text>
             <RatePicker starCount={this.state.starCount} onChangeRate={this.changeRate.bind(this)} />
             </ListItem>
-              <ListItem>
-                <AddressPicker placeholder="enter your destination address" onAddressChange={this.changeDestinationAddress.bind(this)}/>
-            </ListItem>
-             <ListItem>
-                <AddressPicker placeholder="enter your origin address" onAddressChange={this.changeOriginAddress.bind(this)}/>
-            </ListItem>
-              <Button onPress={()=>this.props.createTrip(this.state)}>
+              <Button success full style={{marginHorizontal:20}}onPress={()=>this.props.createTrip(this.state)}>
                   <Text style={{color:"white","fontSize": 20}}>Create meeting</Text>
               </Button>
             </List>
