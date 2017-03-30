@@ -1,17 +1,18 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Content, Form, Item, Input, CheckBox, ListItem } from 'native-base';
+import { Content, List, Input, CheckBox, ListItem, Icon } from 'native-base';
 import DatePicker from 'react-native-datepicker'
+import RatePicker from './RatePicker';
 
 const SelectTrip = ({ changeDate }) => {
     let date = new Date();
     return (
         <View>
-          <Form>
-            <Item>
+          <List>
+            <ListItem>
                 <Input placeholder="Write an address" />
-            </Item>
-            <Item>
+            </ListItem>
+            <ListItem>
                 <DatePicker
 		        style={{width: 200}}
 		        date={date}
@@ -36,7 +37,7 @@ const SelectTrip = ({ changeDate }) => {
 		        }}
 		        onDateChange={(newDate) => {date=newDate}}
 		      />
-            </Item>
+            </ListItem>
              <ListItem>
               <CheckBox checked={false} />
               <Text>Flight</Text>
@@ -49,7 +50,10 @@ const SelectTrip = ({ changeDate }) => {
               <CheckBox checked={false} />
               <Text>Transportation</Text>
             </ListItem>
-        </Form>
+            <ListItem>
+            <RatePicker/>
+            </ListItem>
+        </List>
     </View>
     )
 }
