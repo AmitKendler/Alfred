@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import { Content, List, Input, CheckBox, ListItem, Icon } from 'native-base';
+import { Content, List, Input, CheckBox, ListItem, Icon, Button } from 'native-base';
 import DatePicker from 'react-native-datepicker'
 import RatePicker from './RatePicker';
 import AddressPicker from './AddressPicker';
@@ -13,8 +13,25 @@ class SelectTrip extends Component {
             starCount: 4,
             flightsCheck: true,
             hotelCheck: true,
-            transportationCheck: true
+            transportationCheck: true,
+            address: {
+                lat: "",
+                lng: ""
+            }
         }
+    }
+
+    changeAddress(data, details) {
+        this.setState({
+            address: {
+                lat: details.geometry.location.lat,
+                lng: details.geometry.location.lng
+            }
+        });
+    }
+
+    changeRate(rate) {
+        this.setState({ starCount: rate });
     }
 
 
@@ -26,7 +43,7 @@ class SelectTrip extends Component {
                 <Text>Meeting details</Text>
             </ListItem> 
             <ListItem>
-                <AddressPicker />
+                <AddressPicker onAddressChange={this.changeAddress.bind(this)}/>
             </ListItem>
             <ListItem style={{ justifyContent:'center'}}>
                 <DatePicker
@@ -70,9 +87,15 @@ class SelectTrip extends Component {
                 <Text>Rating of service</Text>
             </ListItem> 
             <ListItem style={{justifyContent:"center"}}>
-            <RatePicker starCount={this.state.starCount} onChangeRate={(rate)=>this.setState({starCount:rate})} />
+            <RatePicker starCount={this.state.starCount} onChangeRate={this.changeRate.bind(this)} />
             </ListItem>
+            <ListItem style={{justifyContent:"center"}} >
+              <Button onPress={()=>this.props.createTrip(this.state)}>
+                  <Text style={{color:"white","fontSize": 30}}>Set my trip!</Text>
+              </Button>
+            </ListItem> 
         </List>
+         
     </View>
         )
     }

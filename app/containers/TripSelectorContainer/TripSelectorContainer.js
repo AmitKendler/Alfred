@@ -13,10 +13,14 @@ class PickOptionContainer extends Component {
         this.setState({ date: date });
     }
 
+    createTrip(tripDetails) {
+        alert(Object.keys(tripDetails));
+    }
+
     render() {
         return (
             <ScrollView style={{flex: 1}}>
-        <SelectTrip date={this.state.date}/>
+        <SelectTrip createTrip={this.createTrip}/>
       </ScrollView>
         )
     }
