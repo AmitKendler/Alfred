@@ -9,7 +9,7 @@ const AddressPicker = ({
 }) => {
     return (
         <View style={{flex: 1, width:'100%'}}>
-            <GooglePlacesAutocomplete placeholder={placeholder}
+          <GooglePlacesAutocomplete placeholder={placeholder}
             minLength={ 2 } // minimum length of text to search
             autoFocus={ false }
             listViewDisplayed='auto' // true/false/undefined
@@ -23,23 +23,22 @@ const AddressPicker = ({
                     return '';
                 }
             }
-            query={
-                {
-                    // available options: https://developers.google.com/places/web-service/autocomplete
-                    key: 'AIzaSyB1A5rTTn2LtWyhryiJBzxjZYxlBE3B0pw',
-                    language: 'en', // language of the results
-                    types: '(cities)', // default: 'geocode'
-                }
-            }
+            styles={{
+                textInputContainer: {
+                backgroundColor: 'transparent',
+                borderWidth: 2,
+                borderColor: 'lightblue'
+              }
+            }}
+            query={{
+              // available options: https://developers.google.com/places/web-service/autocomplete
+              key: 'AIzaSyB1A5rTTn2LtWyhryiJBzxjZYxlBE3B0pw',
+              language: 'en', // language of the results
+              types: '(cities)', // default: 'geocode'
+            }}
             currentLocation={ false } // Will add a 'Current location' button at the top of the predefined places list
             currentLocationLabel="Current location"
             nearbyPlacesAPI='GooglePlacesSearch' // Which API to use: GoogleReverseGeocoding or GooglePlacesSearch
-
-            styles={{
-              container: {
-                borderColor: 'red'
-              }
-            }}
             GooglePlacesSearchQuery={
                 {
                     // available options for GooglePlacesSearch API : https://developers.google.com/places/web-service/search
