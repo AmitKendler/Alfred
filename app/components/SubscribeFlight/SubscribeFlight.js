@@ -1,12 +1,12 @@
 import React from 'react';
-import {View, Text, TextInput} from 'react-native';
-import {Form, Button, Item, Input, Content, Container} from 'native-base';
+import { View, Text, TextInput } from 'react-native';
+import { Form, Button, Item, Input, Content, Container } from 'native-base';
 
-const SubscribeFlight = ({style, onSubscribe}) => {
-  let flightInput;
+const SubscribeFlight = ({ style, onSubscribe }) => {
+    let flightInput;
 
-  return (
-    <View style={style}>
+    return (
+        <View style={style}>
       <Text style={{textAlign: 'center',fontSize: 16, margin: 5}}>Already have a flight?</Text>
       <Form style={{margin: 20}}>
         <Item>
@@ -20,7 +20,7 @@ const SubscribeFlight = ({style, onSubscribe}) => {
         <Text>Subscribe</Text>
       </Button>
     </View>
-  )
+    )
 }
 
 export default SubscribeFlight

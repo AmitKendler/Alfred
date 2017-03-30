@@ -1,24 +1,19 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { Button, Icon } from 'native-base';
+import StarRating from 'react-native-star-rating';
 
-const RatePicker = () => {
+const RatePicker = ({ starCount, onChangeRate }) => {
     return (
-        <View style={{flexDirection : 'row'}}>
-      <Icon  style={styles.stars} name="ios-star-outline" />
-      <Icon  style={styles.stars} name="ios-star-outline" />
-      <Icon  style={styles.stars} name="ios-star-outline" />
-      <Icon  style={styles.stars} name="ios-star-outline" />
-      <Icon  style={styles.stars} name="ios-star-outline" />
-    </View>
-    )
-}
-
-const styles = {
-    stars: {
-        marginRight: 22,
-        fontSize: 50
-    }
+        <StarRating
+        disabled={false}
+        emptyStar={'ios-star-outline'}
+        fullStar={'ios-star'}
+        halfStar={'ios-star-half'}
+        iconSet={'Ionicons'}
+        maxStars={5}
+        rating={starCount}
+        selectedStar={onChangeRate}
+        starColor={'red'}
+      />)
 }
 
 export default RatePicker

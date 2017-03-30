@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { SelectTrip } from './../../components';
 
 class PickOptionContainer extends Component {
@@ -15,9 +15,9 @@ class PickOptionContainer extends Component {
 
     render() {
         return (
-            <View style={{flex: 1}}>
+            <ScrollView style={{flex: 1}}>
         <SelectTrip date={this.state.date}/>
-      </View>
+      </ScrollView>
         )
     }
 }
