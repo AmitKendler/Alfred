@@ -19,11 +19,13 @@ class PickOptionContainer extends Component {
     }
 
     render() {
-      return (
-        <NavbarContainer title={'Arrange a flight'} hasBack style={{flex: 1}}>
+        return (
+            <NavbarContainer title={'Create a meeting'} hasBack style={{flex: 1}}>
+        <ScrollView>
           <SelectTrip createTrip={this.createTrip}/>
+          </ScrollView>
         </NavbarContainer>
-      )
+        )
     }
 }
 

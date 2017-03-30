@@ -17,7 +17,8 @@ class SelectTrip extends Component {
             address: {
                 lat: "",
                 lng: ""
-            }
+            },
+            description: ""
         }
     }
 
@@ -39,13 +40,14 @@ class SelectTrip extends Component {
         return (
             <View>
           <List >
-             <ListItem itemHeader first>
-                <Text>Meeting details</Text>
-            </ListItem> 
+            <ListItem>
+                <Input value={this.state.description}  onChangeText={(description) => this.setState({description})}  multiline={true} placeholder="Meeting description"/>
+            </ListItem>
             <ListItem>
                 <AddressPicker onAddressChange={this.changeAddress.bind(this)}/>
             </ListItem>
             <ListItem style={{ justifyContent:'center'}}>
+            <Text>meeting date</Text>
                 <DatePicker
             style={{width: 200}}
             date={this.state.date}
@@ -72,9 +74,6 @@ class SelectTrip extends Component {
           />
 
             </ListItem>
-            <ListItem itemHeader first>
-                <Text>What do you need</Text>
-            </ListItem> 
              <ListItem style={{justifyContent:"center"}}>
               <CheckBox checked={this.state.flightsCheck} onPress={()=>this.setState({flightsCheck:!this.state.flightsCheck})}  />
               <Text style={{marginRight:20}}>Flight</Text>
@@ -83,15 +82,13 @@ class SelectTrip extends Component {
               <CheckBox checked={this.state.transportationCheck} onPress={()=>this.setState({transportationCheck:!this.state.transportationCheck})}/>
               <Text style={{marginRight:20}}>Transportation</Text>
             </ListItem>
-            <ListItem itemHeader first >
-                <Text>Rating of service</Text>
-            </ListItem> 
             <ListItem style={{justifyContent:"center"}}>
+            <Text>rating of service</Text>
             <RatePicker starCount={this.state.starCount} onChangeRate={this.changeRate.bind(this)} />
             </ListItem>
             <ListItem style={{justifyContent:"center"}} >
               <Button onPress={()=>this.props.createTrip(this.state)}>
-                  <Text style={{color:"white","fontSize": 30}}>Set my trip!</Text>
+                  <Text style={{color:"white","fontSize": 20}}>Create meeting</Text>
               </Button>
             </ListItem> 
         </List>
