@@ -14,20 +14,21 @@ class SelectTrip extends Component {
             flightsCheck: true,
             hotelCheck: true,
             transportationCheck: true,
-            address: {
-                lat: "",
-                lng: ""
-            },
+            destinationAddress: "",
+            originAddress: "",
             description: ""
         }
     }
 
-    changeAddress(data, details) {
+    changeDestinationAddress(data, details) {
         this.setState({
-            address: {
-                lat: details.geometry.location.lat,
-                lng: details.geometry.location.lng
-            }
+            address: data.description
+        });
+    }
+
+    changeOriginAddress(data, details) {
+        this.setState({
+            originAddress: data.description
         });
     }
 
@@ -42,9 +43,6 @@ class SelectTrip extends Component {
           <List >
             <ListItem>
                 <Input value={this.state.description}  onChangeText={(description) => this.setState({description})}  multiline={true} placeholder="Meeting description"/>
-            </ListItem>
-            <ListItem>
-                <AddressPicker onAddressChange={this.changeAddress.bind(this)}/>
             </ListItem>
             <ListItem style={{ justifyContent:'center'}}>
             <Text>meeting date</Text>
@@ -85,6 +83,12 @@ class SelectTrip extends Component {
             <ListItem style={{justifyContent:"center"}}>
             <Text>rating of service</Text>
             <RatePicker starCount={this.state.starCount} onChangeRate={this.changeRate.bind(this)} />
+            </ListItem>
+              <ListItem>
+                <AddressPicker placeholder="enter your destination address" onAddressChange={this.changeDestinationAddress.bind(this)}/>
+            </ListItem>
+             <ListItem>
+                <AddressPicker placeholder="enter your origin address" onAddressChange={this.changeOriginAddress.bind(this)}/>
             </ListItem>
             <ListItem style={{justifyContent:"center"}} >
               <Button onPress={()=>this.props.createTrip(this.state)}>
