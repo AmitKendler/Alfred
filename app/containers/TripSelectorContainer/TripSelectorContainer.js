@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { SelectTrip } from './../../components';
 import NavbarContainer from './../NavbarContainer/NavbarContainer';
 
@@ -14,12 +14,16 @@ class PickOptionContainer extends Component {
         this.setState({ date: date });
     }
 
+    createTrip(tripDetails) {
+        alert(Object.keys(tripDetails));
+    }
+
     render() {
-        return (
+      return (
         <NavbarContainer title={'Arrange a flight'} hasBack style={{flex: 1}}>
-          <SelectTrip date={this.state.date}/>
+          <SelectTrip createTrip={this.createTrip}/>
         </NavbarContainer>
-        )
+      )
     }
 }
 
