@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, ScrollView } from 'react-native';
-import { TripChangesNotification } from './components';
+import { TripChangesNotificaiton } from './components';
 const amittest = () => (
     <View style={{flex: 1}}>
-      <TripChangesNotification/>
+      <TripChangesNotificaiton/>
       </View>
 )
 

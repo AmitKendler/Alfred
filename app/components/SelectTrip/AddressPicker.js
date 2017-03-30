@@ -3,11 +3,13 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import { View } from 'react-native';
 
 const AddressPicker = ({
-    onAddressChange
+    onAddressChange,
+    placeholder
+
 }) => {
     return (
         <View style={{flex: 1, width:'100%'}}>
-            <GooglePlacesAutocomplete placeholder={"Enter your meeting address"}
+            <GooglePlacesAutocomplete placeholder={placeholder}
             minLength={ 2 } // minimum length of text to search
             autoFocus={ false }
             listViewDisplayed='auto' // true/false/undefined
