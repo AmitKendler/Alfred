@@ -6,13 +6,13 @@ import {Actions} from 'react-native-router-flux';
 const NavbarContainer = ({title, hasBack, children}) => (
   <View style={{flex: 1}}>
     <Header>
-      <Left>
-        {hasBack &&
-          <Button onPress={() => Actions.pop()}>
-            <Icon name='arrow-back' />
+      {hasBack &&
+        <Left>
+          <Button transparent onPress={() => Actions.pop()}>
+            <Icon style={{color: 'white'}} name='arrow-back'  />
           </Button>
-        }
-      </Left>
+        </Left>
+      }
       <Body>
         <Title>{title}</Title>
       </Body>

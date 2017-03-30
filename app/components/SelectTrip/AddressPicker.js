@@ -6,7 +6,7 @@ const AddressPicker = ({
     onAddressChange
 }) => {
     return (
-        <View style={{height:70, width:'100%'}}>
+        <View style={{flex: 1, width:'100%'}}>
             <GooglePlacesAutocomplete placeholder={"Enter your meeting address"}
             minLength={ 2 } // minimum length of text to search
             autoFocus={ false }
@@ -18,7 +18,7 @@ const AddressPicker = ({
                 onAddressChange}
             getDefaultValue={
                 () => {
-                    return '';                 
+                    return '';
                 }
             }
             query={
@@ -33,6 +33,11 @@ const AddressPicker = ({
             currentLocationLabel="Current location"
             nearbyPlacesAPI='GooglePlacesSearch' // Which API to use: GoogleReverseGeocoding or GooglePlacesSearch
 
+            styles={{
+              container: {
+                borderColor: 'red'
+              }
+            }}
             GooglePlacesSearchQuery={
                 {
                     // available options for GooglePlacesSearch API : https://developers.google.com/places/web-service/search

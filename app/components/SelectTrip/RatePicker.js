@@ -12,7 +12,7 @@ const RatePicker = ({ starCount, onChangeRate }) => {
         maxStars={5}
         rating={starCount}
         selectedStar={onChangeRate}
-        starColor={'red'}
+        starColor={'lightblue'}
       />)
 }
 

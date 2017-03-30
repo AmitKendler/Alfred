@@ -22,8 +22,11 @@ const HotelCard = ({
         <CardItem>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <Icon name="md-time" />
-            <Text>{checkInFormat} - {checkOutFormat} ({timeDiff}), {total_price.amount}{total_price.currency}</Text>
+            <Text>{checkInFormat} - {checkOutFormat} ({timeDiff})</Text>
           </View>
+        </CardItem>
+        <CardItem>
+          <Text>{total_price.amount}{total_price.currency}</Text>
         </CardItem>
         <CardItem style={{flexWrap: 'wrap'}}>
           <View>

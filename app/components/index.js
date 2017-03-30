@@ -5,7 +5,7 @@ import { FlightCard, HotelCard, CarCard } from './DirectionCard';
 import DirectionList from './DirectionList/DirectionList';
 import RouteOption from './RouteOption/RouteOption';
 import RouteOptionsList from './RoutesOptionsList/RoutesOptionsList';
-import TripChangesNotificaiton from './TripChangesNotificaiton/TripChangesNotificaiton';
+import TripChangesNotificaiton from './TripChangesNotification/TripChangesNotification';
 
 export {
     SubscribeFlight,

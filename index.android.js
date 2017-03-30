@@ -4,8 +4,8 @@ import matanApp from './app/matantest';
 import amittest from './app/amittest';
 
 // <<<<<<< HEAD
-// AppRegistry.registerComponent('alfredFront', () => alfredFront);
-AppRegistry.registerComponent('alfredFront', () => matanApp);
+AppRegistry.registerComponent('alfredFront', () => alfredFront);
+// AppRegistry.registerComponent('alfredFront', () => matanApp);
 // =======
 //AppRegistry.registerComponent('alfredFront', () => alfredFront);
 //AppRegistry.registerComponent('alfredFront', () => matanApp);

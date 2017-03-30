@@ -5,8 +5,8 @@ import {Button} from 'native-base';
 const ArrangeFlightButton = ({style, onPress}) => {
   return (
     <View style={[style, {justifyContent: 'center'}]}>
-      <Button full onPress={() => onPress()}>
-        <Text>Arrange a flight</Text>
+      <Button full success onPress={() => onPress()}>
+        <Text style={{color: 'white'}}>Arrange a flight</Text>
       </Button>
     </View>
   )

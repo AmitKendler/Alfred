@@ -21,8 +21,13 @@ const CarCard = ({
         <CardItem>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <Icon name="md-time" />
-            <Text>{pickUpFormat} - {dropOffFormat} ({timeDiff}), {estimated_total.amount}{estimated_total.currency}</Text>
+            <Text>{pickUpFormat} - {dropOffFormat} ({timeDiff})</Text>
           </View>
+        </CardItem>
+        <CardItem>
+          <Text>
+            {estimated_total.amount}{estimated_total.currency}
+          </Text>
         </CardItem>
         <CardItem style={{flexWrap: 'wrap'}}>
           <View>
