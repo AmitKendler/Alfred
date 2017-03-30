@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { SelectTrip } from './../../components';
+import NavbarContainer from './../NavbarContainer/NavbarContainer';
 
 class PickOptionContainer extends Component {
 
@@ -15,9 +16,9 @@ class PickOptionContainer extends Component {
 
     render() {
         return (
-            <View style={{flex: 1}}>
-        <SelectTrip date={this.state.date}/>
-      </View>
+        <NavbarContainer title={'Arrange a flight'} hasBack style={{flex: 1}}>
+          <SelectTrip date={this.state.date}/>
+        </NavbarContainer>
         )
     }
 }
