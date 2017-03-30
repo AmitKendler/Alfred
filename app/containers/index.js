@@ -1,4 +1,4 @@
 import PickOptionContainer from './PickOptionContainer/PickOptionContainer';
-export { PickOptionContainer };
 import TripSelectorContainer from './TripSelectorContainer/TripSelectorContainer';
-export { TripSelectorContainer };
+import NavbarContainer from './NavbarContainer/NavbarContainer';
+export { TripSelectorContainer, PickOptionContainer, NavbarContainer };
