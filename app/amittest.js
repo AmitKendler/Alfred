@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { View, ScrollView } from 'react-native';
-import { FlightCard, HotelCard, CarCard } from './components';
+import { TripChangesNotification } from './components';
 const amittest = () => (
     <View style={{flex: 1}}>
-      <TripChangeWarning/>
+      <TripChangesNotification/>
       </View>
 )
 
