@@ -5,8 +5,8 @@ const RatePicker = ({ starCount, onChangeRate }) => {
     return (
         <StarRating
         disabled={false}
-        emptyStar={'ios-star-outline'}
-        fullStar={'ios-star'}
+        emptyStar={'ios-pricetag-outline'}
+        fullStar={'ios-pricetag'}
         halfStar={'ios-star-half'}
         iconSet={'Ionicons'}
         maxStars={5}
