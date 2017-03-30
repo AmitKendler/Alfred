@@ -84,7 +84,7 @@ def enableProguardInReleaseBuilds = false
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion "23.0.2"
 
     defaultConfig {
         applicationId "com.alfredfront"
@@ -95,6 +95,8 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        manifestPlaceholders = [onesignal_app_id: "66411bd6-cc1b-4d4f-852f-505456b7b4f9",
+                                onesignal_google_project_number: "REMOTE"]
     }
     splits {
         abi {
@@ -126,9 +128,10 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-onesignal')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"
-   compile project(':react-native-vector-icons')
+    compile project(':react-native-vector-icons')
     compile "com.facebook.react:react-native:+"  // From node_modules
 }
 
