@@ -17,7 +17,7 @@ class PickOptionContainer extends Component {
 
         <SubscribeFlight
           style={{flex: 1}}
-          onSubscribe={(a) => alert(a)}/>
+          onSubscribe={(a) => alert("Subsribed to flight " + a)}/>
 
       <KeyboardAvoidingView behavior={'position'} contentContainerStyle={{flex: 1}} style={{flex: 1}}>
         <Text style={{flex: 1, textAlign: 'center'}}>Or</Text>

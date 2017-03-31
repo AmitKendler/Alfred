@@ -10,7 +10,7 @@ const RoutesList = ({ routes, onRouteClicked }) => {
       <ListView
         dataSource={ds.cloneWithRows(routes)}
         renderRow={(row, sectionId, index) => (
-          <RouteOption data={row.directions} index={index} onRouteClicked={() => onRouteClicked(row, index)} >
+          <RouteOption data={row.directions} icon={row.icon} color={row.color} index={index} onRouteClicked={() => onRouteClicked(row, index)} >
             {row.showDirection && <DirectionList style={{marginHorizontal: 10, marginVertical: 5}} animatedVal={row.animVal} data={row.directions} /> }
           </RouteOption>
         )}

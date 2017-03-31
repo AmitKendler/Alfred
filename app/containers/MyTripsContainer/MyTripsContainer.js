@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Animated} from 'react-native';
+import {View, Text, Animated, ScrollView} from 'react-native';
 import NavbarContainer from './../NavbarContainer/NavbarContainer';
 import {RouteOptionsList} from './../../components';
 import {sortDirectionOfMine} from './../../utils';
@@ -13,15 +13,24 @@ class MyTripsContainer extends React.Component{
     this.state = {
       trips: [],
       arrShowRoutes: [],
-      arrAnimVals: [new Animated.Value(0), new Animated.Value(0), new Animated.Value(0)]
+      arrAnimVals: []
     }
   }
 
   componentDidMount(){
-    fetch(`http://10.10.192.64:8000/api/getTripsByUser?username=joe`)
+    // fetch(`http://10.10.192.64:8000/api/getTripsByUser?username=joe`)
+    fetch(`http://10.10.192.64:8000/api/getAllTrips`)
     .then(res => res.json())
     .then(trips => {
       this.setState({trips})
+      var arrShowRoutes = [],
+          arrAnimVals = [];
+      trips.forEach(() => {
+        arrShowRoutes.push(false);
+        arrAnimVals.push(new Animated.Value(0))
+      })
+
+      this.setState({arrAnimVals, arrShowRoutes})
     })
   }
 
@@ -30,12 +39,12 @@ class MyTripsContainer extends React.Component{
     let newArrAnims = this.state.arrAnimVals;
 
     var newArrShowRoutes = this.state.arrShowRoutes;
-    if (!newArrShowRoutes[index]){
-      newArrShowRoutes[index] = true;
-    }
-    else{
+    // if (!newArrShowRoutes[index]){
+    //   newArrShowRoutes[index] = true;
+    // }
+    // else{
       newArrShowRoutes[index] = !this.state.arrShowRoutes[index];
-    }
+    // }
 
     let toVal = (newArrShowRoutes[index]) ? 1 : 0;
 
@@ -55,25 +64,23 @@ class MyTripsContainer extends React.Component{
     const {trips} = this.state;
     let sortedRoutes = [];
     // Map the answers to get the best 3 routes:
-    // the indexes (0,1,2) are the 3 routes options
-    trips && trips.forEach(trip => sortedRoutes.push(sortDirectionOfMine(trip)));
-    // for (var i = 0; i < 3; i++) {
-    //   var sortedDirections = sortDirectionOfMine()
-    //   var routeObj = Object.assign(
-    //     {},
-    //     {directions: sortedDirections},
-    //     {showDirection: this.state.arrShowRoutes[i], animVal: this.state.arrAnimVals[i]})
-    //   sortedRoutes.push(routeObj);
-
+    trips && trips.forEach((trip, i) => sortedRoutes.push({
+      directions: sortDirectionOfMine(trip),
+      showDirection: this.state.arrShowRoutes[i],
+      animVal: this.state.arrAnimVals[i],
+      color: '#FFC107',
+      icon: 'md-information-circle'
+    }));
+    // alert(Object.keys())
+    // sortedRoutes.push(sortDirectionOfMine(trips));
     return (
       <NavbarContainer hasBack styleContainer={{flex: 1}} title={'My trips'}>
-        <View>
+        <ScrollView>
           <RouteOptionsList
             onRouteClicked={(route, index) => this.onRoutePressed(route, index)}
             routes={sortedRoutes} />
-            <Text>{JSON.stringify(this.state.trips)}</Text>
 
-        </View>
+        </ScrollView>
       </NavbarContainer>
     )
   }

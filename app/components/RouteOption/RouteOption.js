@@ -23,7 +23,7 @@ const getNextDir = (iconName, direction) => (
   </View>
 )
 
-const RouteOption = ({ data, index, onRouteClicked, children }) => {
+const RouteOption = ({ data, index, onRouteClicked, color, icon, children }) => {
     // let sortedRoutes = sortDirections({flights, cars, hotels})
     return (
       <View>
@@ -36,7 +36,7 @@ const RouteOption = ({ data, index, onRouteClicked, children }) => {
               ToastAndroid.show("Trip has been selected", ToastAndroid.SHORT);
               Actions.pop();
             }}>
-              <Icon style={{color: 'green'}} name="md-checkmark-circle" />
+              <Icon style={{color: color || 'green'}} name={icon || "md-checkmark-circle"} />
             </TouchableOpacity>
             {/* <Text style={{fontSize: 18}}>{`${Math.floor(Math.random() * 400)+100}$`}</Text> */}
           </CardItem>

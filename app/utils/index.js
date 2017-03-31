@@ -34,12 +34,12 @@ const sortDirectionOfMine = ({hotel, flight}) => {
   let allDirs = [];
 
   if (moment(hotel.check_in).isAfter(moment(flight.arrival_date))){
-    allDirs.push({...hotel});
-    allDirs.push({...flight});
+    allDirs.push(Object.assign({}, hotel, {type: DIRECTIONS.HOTEL}));
+    allDirs.push(Object.assign({}, flight, {type: DIRECTIONS.FLIGHT}));
   }
   else{
-    allDirs.push({...flight});
-    allDirs.push({...hotel});
+    allDirs.push(Object.assign({}, flight, {type: DIRECTIONS.FLIGHT}));
+    allDirs.push(Object.assign({}, hotel, {type: DIRECTIONS.HOTEL}));
   }
 
   return allDirs;
@@ -47,11 +47,15 @@ const sortDirectionOfMine = ({hotel, flight}) => {
 
 const getStartTime = (dir) =>
 (dir.outbound && moment(dir.outbound.flights[0].departs_at).format("YYYY-MM-DD")) ||
-(dir.rooms && dir.rooms[0].rates[0].start_date);
+(dir.rooms && dir.rooms[0].rates[0].start_date) ||
+(dir.check_in) ||
+(moment(dir.departure_datetime).format("YYYY-MM-DD"));
 
 const getEndTime = (dir) =>
 (dir.outbound && moment(dir.outbound.flights[0].arrives_at).format("YYYY-MM-DD")) ||
-(dir.rooms && dir.rooms[0].rates[0].end_date);
+(dir.rooms && dir.rooms[0].rates[0].end_date) ||
+(dir.check_out) ||
+(moment(dir.arrival_date).format("YYYY-MM-DD"))
 
 
 

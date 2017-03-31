@@ -1,4 +1,4 @@
-import OneSignal from 'react-native-one-signal';
+import OneSignal from 'react-native-onesignal';
 
 const onRecieved = (notification) => {
   console.log("Notification received: ", notification);
