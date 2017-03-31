@@ -3,6 +3,7 @@ import { sortDirections, DIRECTIONS, getStartTime, getEndTime } from './../../ut
 import { View, Text, TouchableOpacity } from 'react-native';
 import {Icon, Card, CardItem, Button} from 'native-base';
 import StarRating from 'react-native-star-rating';
+import {Actions} from 'react-native-router-flux';
 
 
 const getDir = (direction) => {
@@ -31,7 +32,10 @@ const RouteOption = ({ data, index, onRouteClicked, children }) => {
             <View style={{flexDirection: 'row'}}>
               {data.map(direction => getDir(direction))}
             </View>
-            <TouchableOpacity onPress={() => alert("PRESSED")}>
+            <TouchableOpacity onPress={() => {
+              ToastAndroid.show("Trip has been selected", ToastAndroid.SHORT);
+              Actions.pop().
+            }}>
               <Icon name="md-checkmark-circle" />
             </TouchableOpacity>
             {/* <Text style={{fontSize: 18}}>{`${Math.floor(Math.random() * 400)+100}$`}</Text> */}
