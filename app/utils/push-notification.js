@@ -19,9 +19,9 @@ const onIds = (device) => {
   console.log('Device info: ', device);
 }
 
-export default () => {
+export default (onNotif) => {
   OneSignal.addEventListener('received', onRecieved);
-  OneSignal.addEventListener('opened', onOpened);
+  OneSignal.addEventListener('opened', () => onNotif);
   OneSignal.addEventListener('registered', onRegistered);
   OneSignal.addEventListener('ids', onIds);
 }

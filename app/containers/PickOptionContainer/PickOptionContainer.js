@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Image, KeyboardAvoidingView } from 'react-native';
-import { SubscribeFlight, ArrangeFlightButton } from './../../components';
+import { SubscribeFlight, ArrangeFlightButton, ShowMyTrips } from './../../components';
 import NavbarContainer from './../NavbarContainer/NavbarContainer';
 import { Actions } from 'react-native-router-flux';
 import media from './../../media';
@@ -25,6 +25,7 @@ class PickOptionContainer extends Component {
         <ArrangeFlightButton
           onPress={() => Actions.tripSelector()}
           style={{flex: 1, padding: 20}} />
+        <ShowMyTrips onShowPressed={() => Actions.myTrips()} />
       </KeyboardAvoidingView>
 
         </Image>

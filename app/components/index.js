@@ -7,6 +7,7 @@ import DirectionList from './DirectionList/DirectionList';
 import RouteOption from './RouteOption/RouteOption';
 import RouteOptionsList from './RoutesOptionsList/RoutesOptionsList';
 import TripChangesNotificaiton from './TripChangesNotification/TripChangesNotification';
+import ShowMyTrips from './ShowMyTrips/ShowMyTrips';
 
 export {
     SubscribeFlight,
@@ -19,5 +20,6 @@ export {
     RouteOption,
     RouteOptionsList,
     TripChangesNotificaiton,
-    AddressPicker
+    AddressPicker,
+    ShowMyTrips
 };

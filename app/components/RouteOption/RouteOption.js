@@ -1,6 +1,6 @@
 import React from 'react';
 import { sortDirections, DIRECTIONS, getStartTime, getEndTime } from './../../utils';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, ToastAndroid } from 'react-native';
 import {Icon, Card, CardItem, Button} from 'native-base';
 import StarRating from 'react-native-star-rating';
 import {Actions} from 'react-native-router-flux';
@@ -28,15 +28,15 @@ const RouteOption = ({ data, index, onRouteClicked, children }) => {
     return (
       <View>
         <Card>
-          <CardItem onPress={() => onRouteClicked()} style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+          <CardItem onPress={() => onRouteClicked()} style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <View style={{flexDirection: 'row'}}>
               {data.map(direction => getDir(direction))}
             </View>
             <TouchableOpacity onPress={() => {
               ToastAndroid.show("Trip has been selected", ToastAndroid.SHORT);
-              Actions.pop().
+              Actions.pop();
             }}>
-              <Icon name="md-checkmark-circle" />
+              <Icon style={{color: 'green'}} name="md-checkmark-circle" />
             </TouchableOpacity>
             {/* <Text style={{fontSize: 18}}>{`${Math.floor(Math.random() * 400)+100}$`}</Text> */}
           </CardItem>
