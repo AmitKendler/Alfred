@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { SelectTrip } from './../../components';
 import NavbarContainer from './../NavbarContainer/NavbarContainer';
+import { Actions } from 'react-native-router-flux';
 
 class PickOptionContainer extends Component {
 
@@ -15,7 +16,22 @@ class PickOptionContainer extends Component {
     }
 
     createTrip(tripDetails) {
-        alert(Object.keys(tripDetails));
+        tripDetails.date = tripDetails.date.toISOString().slice(0, 19);
+        fetch("http://10.10.192.64:8000/getTrips/", {
+            method: "POST",
+            "headers": { "Content-Type": "application/json" },
+            body: JSON.stringify(tripDetails)
+        }).then(res => {
+            if (res.status === 200) {
+                res.json().then(res => {
+                    Actions.routesOptions({ result: res });
+                }).catch(err => alert(err));
+
+            } else {
+                alert("ERROR: no sleep. what did you expect? status " + res.status);
+            }
+        });
+
     }
 
     render() {

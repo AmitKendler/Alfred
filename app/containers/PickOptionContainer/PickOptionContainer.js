@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
-import {View, Text, Image, KeyboardAvoidingView} from 'react-native';
-import {SubscribeFlight, ArrangeFlightButton} from './../../components';
+import React, { Component } from 'react';
+import { View, Text, Image, KeyboardAvoidingView } from 'react-native';
+import { SubscribeFlight, ArrangeFlightButton } from './../../components';
 import NavbarContainer from './../NavbarContainer/NavbarContainer';
-import {Actions} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import media from './../../media';
-import {ListItem} from 'native-base';
+import { ListItem } from 'native-base';
 
-class PickOptionContainer extends Component{
-  render(){
-    return (
-      <NavbarContainer styleContainer={{flex: 1}} title={'Welcome!'}>
+class PickOptionContainer extends Component {
+    render() {
+        return (
+            <NavbarContainer styleContainer={{flex: 1}} title={'Welcome!'}>
          {/* <Image
            resizeMode={'cover'}
            source={media.backgrounds.mainViewBackground}
@@ -29,8 +29,8 @@ class PickOptionContainer extends Component{
 
         {/* </Image> */}
       </NavbarContainer>
-    )
-  }
+        )
+    }
 }
 
 export default PickOptionContainer;

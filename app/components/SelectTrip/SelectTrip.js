@@ -21,7 +21,7 @@ class SelectTrip extends Component {
 
     changeDestinationAddress(data, details) {
         this.setState({
-            address: data.description
+            destinationAddress: data.description
         });
     }
 
