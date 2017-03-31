@@ -9,11 +9,11 @@ import { ListItem } from 'native-base';
 class PickOptionContainer extends Component {
     render() {
         return (
-            <NavbarContainer styleContainer={{flex: 1}} title={'Welcome!'}>
-         {/* <Image
+            <NavbarContainer styleContainer={{flex: 1}} title={'Hello, joe!'}>
+         <Image
            resizeMode={'cover'}
            source={media.backgrounds.mainViewBackground}
-           style={{flex: 1, height: null, width: null, backgroundColor: 'white'}}> */}
+           style={{flex: 1, height: null, width: null, backgroundColor: 'white'}}>
 
         <SubscribeFlight
           style={{flex: 1}}
@@ -27,7 +27,7 @@ class PickOptionContainer extends Component {
           style={{flex: 1, padding: 20}} />
       </KeyboardAvoidingView>
 
-        {/* </Image> */}
+        </Image>
       </NavbarContainer>
         )
     }

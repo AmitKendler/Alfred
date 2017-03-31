@@ -11,6 +11,7 @@ const SubscribeFlight = ({ style, onSubscribe }) => {
         <Form style={{margin: 20}}>
           <Item>
             <Input
+              placeholderTextColor={'black'}
               keyboardType={'numeric'}
               onChangeText={(t) => flightInput = t}
               style={{textAlign: 'center'}}

@@ -11,6 +11,7 @@ class SelectTrip extends Component {
         this.state = {
             date: new Date(),
             starCount: 4,
+            flightsCheck: true,
             hotelCheck: true,
             transportationCheck: true,
             destinationAddress: "",
